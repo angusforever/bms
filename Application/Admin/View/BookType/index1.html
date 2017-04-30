@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="__PUBLIC__/vendor/bootstrap-table/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="__PUBLIC__/adminframework/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="__PUBLIC__/adminframework/css/plugins/chosen/chosen.css" rel="stylesheet">
+    <link href="__PUBLIC__/vendor/bootstrap-table/bootstrap-table/src/bootstrap-table.css" rel="stylesheet" >
+    <link href="__PUBLIC__/adminframework/css/animate.css" rel="stylesheet">
+    <link rel="stylesheet" href="__PUBLIC__/vendor/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css">
+    <!--<link href="__PUBLIC__/adminframework/css/style_atp.css?v=4.0.0" rel="stylesheet">-->
+    <link href="__PUBLIC__/adminframework/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+    <base target="_blank">
+    <style type="text/css">
+        .ztree li span.button.add {
+            margin-left: 2px;
+            margin-right: -1px;
+            background-position: -144px 0;
+            vertical-align: top;
+        }
+    </style>
+</head>
+
+<body class="">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="ibox float-e-margins">
+        <div class="ibox-content" style="width: 50%;margin: 0 auto;background-color: lightcyan;overflow: scroll">
+            <ul id="treeDemo" class="ztree" style="width: 90%;margin-left: 5%;border: 0;"></ul>
+        </div>
+    </div>
+</div>
+
+
+<script src="__PUBLIC__/vendor/bootstrap-table/jquery.min.js"></script>
+<script src="__PUBLIC__/vendor/bootstrap-table/bootstrap/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/adminframework/js/plugins/chosen/chosen.jquery.js"></script>
+<script src="__PUBLIC__/vendor/bootstrap-table/bootstrap-table/src/bootstrap-table.js"></script>
+<script src="__PUBLIC__/vendor/bootstrap-table/bootstrap-table/src/locale/bootstrap-table-zh-CN.js"></script>
+<script type="text/javascript" src="__PUBLIC__/vendor/zTree/js/jquery.ztree.core.js"></script>
+<script type="text/javascript" src="__PUBLIC__/vendor/zTree/js/jquery.ztree.excheck.js"></script>
+<script type="text/javascript" src="__PUBLIC__/vendor/zTree/js/jquery.ztree.exedit.js"></script>
+<script src="__PUBLIC__/adminframework/js/plugins/toastr/toastr.min.js"></script>
+
+<script>
+    var setting = {
+        async : {
+            enable : true,//开启异步加载处理
+            url : '__CONTROLLER__/getData',
+            type : "get"
+        },
+        view : {
+            expandSpeed : "",
+            addHoverDom : addHoverDom,
+            removeHoverDom : removeHoverDom,
+            selectedMulti : false
+        },
+        edit : {
+            enable : true,
+            removeTitle: '删除',
+            renameTitle: '修改',
+            showRemoveBtn: true,
+            showRenameBtn: true
+        },
+        data : {
+            simpleData : {
+                enable : true,
+                idKey:'id',
+                pIdKey: 'pid',
+                rootPId: null
+            }
+        },
+        callback : {
+            beforeRemove : beforeRemove,
+            beforeRename : beforeRename,
+        }
+    };
+    function beforeRemove(treeId, treeNode) {
+        if (confirm("确认删除分类--" + treeNode.name + "?")) {
+            $.post('__CONTROLLER__/remove',{id: treeNode.id}, function(result){
+                if('0' == result){
+                    alert('删除成功');
+                    window.location.reload();
+                } else if('-1' == result){
+                    alert('存在子分类，不能删除');
+                    window.location.reload();
+                } else {
+                    alert('删除失败，错误码：' + result);
+                    window.location.reload();
+                }
+            });
+        } else {
+            return false;
+        }
+    }
+    function beforeRename(treeId, treeNode, newName) {
+        if (newName.length == 0) {
+            alert("分类名称不能为空.");
+            return false;
+        }
+        $.post('__CONTROLLER__/rename',{id:treeNode.id, name: newName}, function(result){
+            if('0' == result){
+                alert('修改成功');
+                window.location.reload();
+            } else {
+                alert('修改失败，错误码：' + result);
+                window.location.reload();
+            }
+        });
+        return true;
+    }
+
+    function addHoverDom(treeId, treeNode) {
+        var sObj = $("#" + treeNode.tId + "_span");
+        if (treeNode.editNameFlag || $("#addBtn_" + treeNode.tId).length > 0)
+            return;
+        var addStr = "<span class='button add' id='addBtn_" + treeNode.tId
+                + "' title='add node' onfocus='this.blur();'></span>";
+        sObj.after(addStr);
+        var btn = $("#addBtn_" + treeNode.tId);
+        if (btn) {
+            btn.bind("click", function () {
+                var Ppname = prompt("请输入分类名称");
+                if (Ppname == null) {
+                    return;
+                } else if (Ppname == "") {
+                    alert("分类名称不能为空");
+                } else {
+//                    var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                    $.post('__CONTROLLER__/add', {pid: treeNode.id, name: Ppname},
+                            function (result) {
+//                                if ($.trim(data) != null) {
+//                                    var treenode = $.trim(data);
+//                                    zTree.addNodes(treeNode, {
+//                                        id: data,
+//                                        pid: treeNode.id,
+//                                        name: Ppname
+//                                    }, true);
+//                                }
+                                if('0' == result){
+                                    alert('添加成功');
+                                    window.location.reload();
+                                } else {
+                                    alert('添加失败，错误码：' + result);
+                                    window.location.reload();
+                                }
+                            }
+                    );
+                }
+            });
+        }
+    };
+    function removeHoverDom(treeId, treeNode) {
+        $("#addBtn_" + treeNode.tId).unbind().remove();
+    };
+    $(document).ready(function() {
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "progressBar": false,
+            "positionClass": "toast-top-center",
+            "onclick": null,
+            "showDuration": "400",
+            "hideDuration": "1000",
+            "timeOut": "3000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+        $.fn.zTree.init($("#treeDemo"), setting);
+    });
+</script>
+</body>
+
+</html>
+
+
+
+

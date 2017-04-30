@@ -1,0 +1,20 @@
+[ 2017-03-28T09:34:08+08:00 ] ::1 /newatp/index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000036s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002475s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000521s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000628s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Applications/MAMP/htdocs/newatp/ThinkPHP/Common/functions.php 第 1263 行.
+ERR: 无法加载控制器:Index
+
+[ 2017-03-28T19:05:35+08:00 ] ::1 /bms/index.php/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000056s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000946s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000670s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000760s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Applications/MAMP/htdocs/bms/ThinkPHP/Common/functions.php 第 1263 行.
+ERR: 无法加载控制器:Index
+

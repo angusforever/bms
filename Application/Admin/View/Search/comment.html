@@ -1,0 +1,25 @@
+﻿<div class="modal-dialog" style="width: 600px;max-height:600px;overflow-y:auto;z-index: 10;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" data-dismiss="modal" class="close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title">查看书评</h4>
+        </div>
+        <div class="modal-body" style="max-height: 600px;overflow-y: auto">
+
+            <empty name="comments">
+                暂无评论
+            <else/>
+                <foreach name="comments" item="comment">
+                    <p style="color: grey;font-size: 12px">评论人：{$comment.emp_name}&nbsp;&nbsp;&nbsp;&nbsp;评论时间：{$comment.cm_atplastmodifydatetime}</p>
+                    <p style="word-break: break-all">{$comment.cm_content}</p>
+                    <hr>
+                </foreach>
+            </empty>
+        </div>
+        <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-primary">关闭</button>
+        </div>
+    </div>
+</div>

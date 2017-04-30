@@ -1,0 +1,473 @@
+[ 2017-04-08T11:04:25+08:00 ] ::1 /bms/index.php/Admin/Search/getData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000045s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002240s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002464s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002670s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Applications/MAMP/htdocs/bms/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: select bktp.*,bk.*,br.*
+from bkmg_bktype bktp
+left join bkmg_book bk on bktp.bktp_bkid=bk.bk_atpid
+left join (select br_bkid,GROUP_CONCAT(distinct emp_name order by br_brtime SEPARATOR ',') br_person from (select br.*,emp.* from bkmg_borrow br left join bkmg_employee emp on br_empid=emp_atpid where br_rttime is null) t GROUP BY br_bkid) br on bk.bk_atpid=br.br_bkid
+ where bk.bk_atpstatus is null and bktp.bktp_atpstatus is null and bk.bk_atpid is not null order by bk_code asc  limit 0,10  [ RunTime:0.0259s ]
+SQL: select count(1) c
+from bkmg_bktype bktp
+left join bkmg_book bk on bktp.bktp_bkid=bk.bk_atpid
+left join (select br_bkid,GROUP_CONCAT(distinct emp_name order by br_brtime SEPARATOR ',') br_person from (select br.*,emp.* from bkmg_borrow br left join bkmg_employee emp on br_empid=emp_atpid where br_rttime is null) t GROUP BY br_bkid) br on bk.bk_atpid=br.br_bkid
+ where bk.bk_atpstatus is null and bktp.bktp_atpstatus is null and bk.bk_atpid is not null [ RunTime:0.0040s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002128s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002289s ]
+
+[ 2017-04-08T22:48:07+08:00 ] ::1 /bms/index.php/Admin/Frame
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001902s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002928s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003090s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Applications/MAMP/htdocs/bms/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000129s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000238s ]
+NOTIC: [8] Undefined index: emp_role /Applications/MAMP/htdocs/bms/Application/Runtime/Cache/Admin/8a9596a874ca92381cbfe59ee2b4e57b.php 第 52 行.
+NOTIC: [8] Undefined index: emp_role /Applications/MAMP/htdocs/bms/Application/Runtime/Cache/Admin/8a9596a874ca92381cbfe59ee2b4e57b.php 第 64 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018050s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018161s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001509s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001646s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001870s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001970s ]
+
+[ 2017-04-08T22:48:07+08:00 ] ::1 /bms/index.php/Admin/search/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000054s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000884s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000752s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000918s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Applications/MAMP/htdocs/bms/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `bkmg_type` [ RunTime:0.0112s ]
+SQL: SELECT * FROM `bkmg_type` WHERE `tp_atpstatus` is null AND `tp_pid` is not null  [ RunTime:0.0023s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000178s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000384s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015793s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015991s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000247s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000324s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001063s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001298s ]
+
+[ 2017-04-08T22:48:07+08:00 ] ::1 /bms/index.php/Admin/Search/getData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000053s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002995s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000805s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Applications/MAMP/htdocs/bms/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: select bktp.*,bk.*,br.*
+from bkmg_bktype bktp
+left join bkmg_book bk on bktp.bktp_bkid=bk.bk_atpid
+left join (select br_bkid,GROUP_CONCAT(distinct emp_name order by br_brtime SEPARATOR ',') br_person from (select br.*,emp.* from bkmg_borrow br left join bkmg_employee emp on br_empid=emp_atpid where br_rttime is null) t GROUP BY br_bkid) br on bk.bk_atpid=br.br_bkid
+ where bk.bk_atpstatus is null and bktp.bktp_atpstatus is null and bk.bk_atpid is not null order by bk_code asc  limit 0,10  [ RunTime:0.0076s ]
+SQL: select count(1) c
+from bkmg_bktype bktp
+left join bkmg_book bk on bktp.bktp_bkid=bk.bk_atpid
+left join (select br_bkid,GROUP_CONCAT(distinct emp_name order by br_brtime SEPARATOR ',') br_person from (select br.*,emp.* from bkmg_borrow br left join bkmg_employee emp on br_empid=emp_atpid where br_rttime is null) t GROUP BY br_bkid) br on bk.bk_atpid=br.br_bkid
+ where bk.bk_atpstatus is null and bktp.bktp_atpstatus is null and bk.bk_atpid is not null [ RunTime:0.0031s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000550s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000665s ]
+
+[ 2017-04-08T22:48:08+08:00 ] ::1 /bms/index.php/Admin/Frame
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000036s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000509s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000412s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000489s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Applications/MAMP/htdocs/bms/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000125s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000230s ]
+NOTIC: [8] Undefined index: emp_role /Applications/MAMP/htdocs/bms/Application/Runtime/Cache/Admin/8a9596a874ca92381cbfe59ee2b4e57b.php 第 52 行.
+NOTIC: [8] Undefined index: emp_role /Applications/MAMP/htdocs/bms/Application/Runtime/Cache/Admin/8a9596a874ca92381cbfe59ee2b4e57b.php 第 64 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009797s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009875s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000154s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000223s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000444s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000516s ]
+
+[ 2017-04-08T22:48:09+08:00 ] ::1 /bms/index.php/Admin/search/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000045s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000772s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000782s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000943s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Applications/MAMP/htdocs/bms/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `bkmg_type` [ RunTime:0.0062s ]
+SQL: SELECT * FROM `bkmg_type` WHERE `tp_atpstatus` is null AND `tp_pid` is not null  [ RunTime:0.0006s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000177s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000356s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014231s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014376s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000252s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000363s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000894s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001030s ]
+
+[ 2017-04-08T22:48:09+08:00 ] ::1 /bms/index.php/Admin/Search/getData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000042s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000874s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001153s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Applications/MAMP/htdocs/bms/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: select bktp.*,bk.*,br.*
+from bkmg_bktype bktp
+left join bkmg_book bk on bktp.bktp_bkid=bk.bk_atpid
+left join (select br_bkid,GROUP_CONCAT(distinct emp_name order by br_brtime SEPARATOR ',') br_person from (select br.*,emp.* from bkmg_borrow br left join bkmg_employee emp on br_empid=emp_atpid where br_rttime is null) t GROUP BY br_bkid) br on bk.bk_atpid=br.br_bkid
+ where bk.bk_atpstatus is null and bktp.bktp_atpstatus is null and bk.bk_atpid is not null order by bk_code asc  limit 0,10  [ RunTime:0.0084s ]
+SQL: select count(1) c
+from bkmg_bktype bktp
+left join bkmg_book bk on bktp.bktp_bkid=bk.bk_atpid
+left join (select br_bkid,GROUP_CONCAT(distinct emp_name order by br_brtime SEPARATOR ',') br_person from (select br.*,emp.* from bkmg_borrow br left join bkmg_employee emp on br_empid=emp_atpid where br_rttime is null) t GROUP BY br_bkid) br on bk.bk_atpid=br.br_bkid
+ where bk.bk_atpstatus is null and bktp.bktp_atpstatus is null and bk.bk_atpid is not null [ RunTime:0.0033s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000586s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000694s ]
+
+[ 2017-04-08T22:48:18+08:00 ] ::1 /bms/index.php/Admin/Search/getData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000518s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000521s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000617s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Applications/MAMP/htdocs/bms/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: select bktp.*,bk.*,br.*
+from bkmg_bktype bktp
+left join bkmg_book bk on bktp.bktp_bkid=bk.bk_atpid
+left join (select br_bkid,GROUP_CONCAT(distinct emp_name order by br_brtime SEPARATOR ',') br_person from (select br.*,emp.* from bkmg_borrow br left join bkmg_employee emp on br_empid=emp_atpid where br_rttime is null) t GROUP BY br_bkid) br on bk.bk_atpid=br.br_bkid
+ where bk.bk_atpstatus is null and bktp.bktp_atpstatus is null and bk.bk_atpid is not null and bktp.bktp_typeid in('guid776A964C-7157-418B-9CE8-BACC9FD64D32','') group by bk.bk_atpid order by bk_code asc  limit 0,10  [ RunTime:0.0089s ]
+SQL: select count(1) c
+from bkmg_bktype bktp
+left join bkmg_book bk on bktp.bktp_bkid=bk.bk_atpid
+left join (select br_bkid,GROUP_CONCAT(distinct emp_name order by br_brtime SEPARATOR ',') br_person from (select br.*,emp.* from bkmg_borrow br left join bkmg_employee emp on br_empid=emp_atpid where br_rttime is null) t GROUP BY br_bkid) br on bk.bk_atpid=br.br_bkid
+ where bk.bk_atpstatus is null and bktp.bktp_atpstatus is null and bk.bk_atpid is not null and bktp.bktp_typeid in('guid776A964C-7157-418B-9CE8-BACC9FD64D32','') group by bk.bk_atpid [ RunTime:0.0053s ]
+NOTIC: [8] Undefined offset: 0 /Applications/MAMP/htdocs/bms/Application/Admin/Controller/SearchController.class.php 第 55 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000760s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000854s ]
+
+[ 2017-04-08T22:48:20+08:00 ] ::1 /bms/index.php/Admin/Search/getData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000034s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000804s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000640s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000745s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Applications/MAMP/htdocs/bms/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: select bktp.*,bk.*,br.*
+from bkmg_bktype bktp
+left join bkmg_book bk on bktp.bktp_bkid=bk.bk_atpid
+left join (select br_bkid,GROUP_CONCAT(distinct emp_name order by br_brtime SEPARATOR ',') br_person from (select br.*,emp.* from bkmg_borrow br left join bkmg_employee emp on br_empid=emp_atpid where br_rttime is null) t GROUP BY br_bkid) br on bk.bk_atpid=br.br_bkid
+ where bk.bk_atpstatus is null and bktp.bktp_atpstatus is null and bk.bk_atpid is not null and bktp.bktp_typeid in('guid776A964C-7157-418B-9CE8-BACC9FD64D32','guidB74F78DF-DA7F-494D-A4CF-331705AA9A95','') group by bk.bk_atpid order by bk_code asc  limit 0,10  [ RunTime:0.0040s ]
+SQL: select count(1) c
+from bkmg_bktype bktp
+left join bkmg_book bk on bktp.bktp_bkid=bk.bk_atpid
+left join (select br_bkid,GROUP_CONCAT(distinct emp_name order by br_brtime SEPARATOR ',') br_person from (select br.*,emp.* from bkmg_borrow br left join bkmg_employee emp on br_empid=emp_atpid where br_rttime is null) t GROUP BY br_bkid) br on bk.bk_atpid=br.br_bkid
+ where bk.bk_atpstatus is null and bktp.bktp_atpstatus is null and bk.bk_atpid is not null and bktp.bktp_typeid in('guid776A964C-7157-418B-9CE8-BACC9FD64D32','guidB74F78DF-DA7F-494D-A4CF-331705AA9A95','') group by bk.bk_atpid [ RunTime:0.0042s ]
+NOTIC: [8] Undefined offset: 0 /Applications/MAMP/htdocs/bms/Application/Admin/Controller/SearchController.class.php 第 55 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000509s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000585s ]
+
+[ 2017-04-08T22:48:22+08:00 ] ::1 /bms/index.php/Admin/Search/getData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000037s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000593s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000527s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000638s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Applications/MAMP/htdocs/bms/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: select bktp.*,bk.*,br.*
+from bkmg_bktype bktp
+left join bkmg_book bk on bktp.bktp_bkid=bk.bk_atpid
+left join (select br_bkid,GROUP_CONCAT(distinct emp_name order by br_brtime SEPARATOR ',') br_person from (select br.*,emp.* from bkmg_borrow br left join bkmg_employee emp on br_empid=emp_atpid where br_rttime is null) t GROUP BY br_bkid) br on bk.bk_atpid=br.br_bkid
+ where bk.bk_atpstatus is null and bktp.bktp_atpstatus is null and bk.bk_atpid is not null and bktp.bktp_typeid in('guid0E8748F4-20B2-4B20-BC8B-AD80D99C2173','guid776A964C-7157-418B-9CE8-BACC9FD64D32','guidB74F78DF-DA7F-494D-A4CF-331705AA9A95','') group by bk.bk_atpid order by bk_code asc  limit 0,10  [ RunTime:0.0040s ]
+SQL: select count(1) c
+from bkmg_bktype bktp
+left join bkmg_book bk on bktp.bktp_bkid=bk.bk_atpid
+left join (select br_bkid,GROUP_CONCAT(distinct emp_name order by br_brtime SEPARATOR ',') br_person from (select br.*,emp.* from bkmg_borrow br left join bkmg_employee emp on br_empid=emp_atpid where br_rttime is null) t GROUP BY br_bkid) br on bk.bk_atpid=br.br_bkid
+ where bk.bk_atpstatus is null and bktp.bktp_atpstatus is null and bk.bk_atpid is not null and bktp.bktp_typeid in('guid0E8748F4-20B2-4B20-BC8B-AD80D99C2173','guid776A964C-7157-418B-9CE8-BACC9FD64D32','guidB74F78DF-DA7F-494D-A4CF-331705AA9A95','') group by bk.bk_atpid [ RunTime:0.0037s ]
+NOTIC: [8] Undefined offset: 0 /Applications/MAMP/htdocs/bms/Application/Admin/Controller/SearchController.class.php 第 55 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000484s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000553s ]
+
+[ 2017-04-08T22:48:24+08:00 ] ::1 /bms/index.php/Admin/Search/getData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000349s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000583s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000674s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Applications/MAMP/htdocs/bms/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: select bktp.*,bk.*,br.*
+from bkmg_bktype bktp
+left join bkmg_book bk on bktp.bktp_bkid=bk.bk_atpid
+left join (select br_bkid,GROUP_CONCAT(distinct emp_name order by br_brtime SEPARATOR ',') br_person from (select br.*,emp.* from bkmg_borrow br left join bkmg_employee emp on br_empid=emp_atpid where br_rttime is null) t GROUP BY br_bkid) br on bk.bk_atpid=br.br_bkid
+ where bk.bk_atpstatus is null and bktp.bktp_atpstatus is null and bk.bk_atpid is not null and bktp.bktp_typeid in('D4EFF938-A977-43A3-9224-8A8CE7DBEA88','guid0E8748F4-20B2-4B20-BC8B-AD80D99C2173','guid776A964C-7157-418B-9CE8-BACC9FD64D32','guidB74F78DF-DA7F-494D-A4CF-331705AA9A95','') group by bk.bk_atpid order by bk_code asc  limit 0,10  [ RunTime:0.0055s ]
+SQL: select count(1) c
+from bkmg_bktype bktp
+left join bkmg_book bk on bktp.bktp_bkid=bk.bk_atpid
+left join (select br_bkid,GROUP_CONCAT(distinct emp_name order by br_brtime SEPARATOR ',') br_person from (select br.*,emp.* from bkmg_borrow br left join bkmg_employee emp on br_empid=emp_atpid where br_rttime is null) t GROUP BY br_bkid) br on bk.bk_atpid=br.br_bkid
+ where bk.bk_atpstatus is null and bktp.bktp_atpstatus is null and bk.bk_atpid is not null and bktp.bktp_typeid in('D4EFF938-A977-43A3-9224-8A8CE7DBEA88','guid0E8748F4-20B2-4B20-BC8B-AD80D99C2173','guid776A964C-7157-418B-9CE8-BACC9FD64D32','guidB74F78DF-DA7F-494D-A4CF-331705AA9A95','') group by bk.bk_atpid [ RunTime:0.0036s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000642s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000748s ]
+
+[ 2017-04-08T22:48:26+08:00 ] ::1 /bms/index.php/Admin/Search/getData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000489s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000414s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000490s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Applications/MAMP/htdocs/bms/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: select bktp.*,bk.*,br.*
+from bkmg_bktype bktp
+left join bkmg_book bk on bktp.bktp_bkid=bk.bk_atpid
+left join (select br_bkid,GROUP_CONCAT(distinct emp_name order by br_brtime SEPARATOR ',') br_person from (select br.*,emp.* from bkmg_borrow br left join bkmg_employee emp on br_empid=emp_atpid where br_rttime is null) t GROUP BY br_bkid) br on bk.bk_atpid=br.br_bkid
+ where bk.bk_atpstatus is null and bktp.bktp_atpstatus is null and bk.bk_atpid is not null and bktp.bktp_typeid in('A4E6FDB7-491D-45A0-942A-BAFE7A4E6A7D','D4EFF938-A977-43A3-9224-8A8CE7DBEA88','guid0E8748F4-20B2-4B20-BC8B-AD80D99C2173','guid776A964C-7157-418B-9CE8-BACC9FD64D32','guidB74F78DF-DA7F-494D-A4CF-331705AA9A95','') group by bk.bk_atpid order by bk_code asc  limit 0,10  [ RunTime:0.0051s ]
+SQL: select count(1) c
+from bkmg_bktype bktp
+left join bkmg_book bk on bktp.bktp_bkid=bk.bk_atpid
+left join (select br_bkid,GROUP_CONCAT(distinct emp_name order by br_brtime SEPARATOR ',') br_person from (select br.*,emp.* from bkmg_borrow br left join bkmg_employee emp on br_empid=emp_atpid where br_rttime is null) t GROUP BY br_bkid) br on bk.bk_atpid=br.br_bkid
+ where bk.bk_atpstatus is null and bktp.bktp_atpstatus is null and bk.bk_atpid is not null and bktp.bktp_typeid in('A4E6FDB7-491D-45A0-942A-BAFE7A4E6A7D','D4EFF938-A977-43A3-9224-8A8CE7DBEA88','guid0E8748F4-20B2-4B20-BC8B-AD80D99C2173','guid776A964C-7157-418B-9CE8-BACC9FD64D32','guidB74F78DF-DA7F-494D-A4CF-331705AA9A95','') group by bk.bk_atpid [ RunTime:0.0047s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000695s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000842s ]
+
+[ 2017-04-08T22:48:28+08:00 ] ::1 /bms/index.php/Admin/Search/getData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000324s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000378s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000447s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Applications/MAMP/htdocs/bms/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: select bktp.*,bk.*,br.*
+from bkmg_bktype bktp
+left join bkmg_book bk on bktp.bktp_bkid=bk.bk_atpid
+left join (select br_bkid,GROUP_CONCAT(distinct emp_name order by br_brtime SEPARATOR ',') br_person from (select br.*,emp.* from bkmg_borrow br left join bkmg_employee emp on br_empid=emp_atpid where br_rttime is null) t GROUP BY br_bkid) br on bk.bk_atpid=br.br_bkid
+ where bk.bk_atpstatus is null and bktp.bktp_atpstatus is null and bk.bk_atpid is not null order by bk_code asc  limit 0,10  [ RunTime:0.0050s ]
+SQL: select count(1) c
+from bkmg_bktype bktp
+left join bkmg_book bk on bktp.bktp_bkid=bk.bk_atpid
+left join (select br_bkid,GROUP_CONCAT(distinct emp_name order by br_brtime SEPARATOR ',') br_person from (select br.*,emp.* from bkmg_borrow br left join bkmg_employee emp on br_empid=emp_atpid where br_rttime is null) t GROUP BY br_bkid) br on bk.bk_atpid=br.br_bkid
+ where bk.bk_atpstatus is null and bktp.bktp_atpstatus is null and bk.bk_atpid is not null [ RunTime:0.0040s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000822s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000987s ]
+
+[ 2017-04-08T22:48:36+08:00 ] ::1 /bms/index.php/Admin/history/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000414s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001306s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001447s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Applications/MAMP/htdocs/bms/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000124s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000311s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009593s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009719s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000257s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000411s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000800s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001070s ]
+
+[ 2017-04-08T22:48:36+08:00 ] ::1 /bms/index.php/Admin/History/getData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000037s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000655s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000753s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000890s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Applications/MAMP/htdocs/bms/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000811s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000956s ]
+
+[ 2017-04-08T22:48:45+08:00 ] ::1 /bms/index.php/Admin/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000061s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000656s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000924s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001102s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Applications/MAMP/htdocs/bms/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000099s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000208s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015021s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015171s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000224s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000304s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000608s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000703s ]
+
+[ 2017-04-08T22:48:47+08:00 ] ::1 /bms/index.php/Admin/Login/dologin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000542s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000400s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000469s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Applications/MAMP/htdocs/bms/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `bkmg_employee` [ RunTime:0.0021s ]
+SQL: SELECT * FROM `bkmg_employee` WHERE `emp_account` = 'jiwei' AND `emp_password` = 'jiwei' AND `emp_atpstatus` is null  [ RunTime:0.0017s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000563s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000644s ]
+
+[ 2017-04-08T22:48:47+08:00 ] ::1 /bms/index.php/Admin/Frame
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000423s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000604s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000731s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Applications/MAMP/htdocs/bms/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000110s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000189s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005307s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005389s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000148s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000215s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000430s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000502s ]
+
+[ 2017-04-08T22:48:47+08:00 ] ::1 /bms/index.php/Admin/search/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000034s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000575s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000704s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000853s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Applications/MAMP/htdocs/bms/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: SHOW COLUMNS FROM `bkmg_type` [ RunTime:0.0026s ]
+SQL: SELECT * FROM `bkmg_type` WHERE `tp_atpstatus` is null AND `tp_pid` is not null  [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000126s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000237s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008540s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008699s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000322s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000466s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003491s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003700s ]
+
+[ 2017-04-08T22:48:47+08:00 ] ::1 /bms/index.php/Admin/Search/getData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000391s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001431s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000825s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000990s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Applications/MAMP/htdocs/bms/ThinkPHP/Common/functions.php 第 1263 行.
+SQL: select bktp.*,bk.*,br.*
+from bkmg_bktype bktp
+left join bkmg_book bk on bktp.bktp_bkid=bk.bk_atpid
+left join (select br_bkid,GROUP_CONCAT(distinct emp_name order by br_brtime SEPARATOR ',') br_person from (select br.*,emp.* from bkmg_borrow br left join bkmg_employee emp on br_empid=emp_atpid where br_rttime is null) t GROUP BY br_bkid) br on bk.bk_atpid=br.br_bkid
+ where bk.bk_atpstatus is null and bktp.bktp_atpstatus is null and bk.bk_atpid is not null order by bk_code asc  limit 0,10  [ RunTime:0.0086s ]
+SQL: select count(1) c
+from bkmg_bktype bktp
+left join bkmg_book bk on bktp.bktp_bkid=bk.bk_atpid
+left join (select br_bkid,GROUP_CONCAT(distinct emp_name order by br_brtime SEPARATOR ',') br_person from (select br.*,emp.* from bkmg_borrow br left join bkmg_employee emp on br_empid=emp_atpid where br_rttime is null) t GROUP BY br_bkid) br on bk.bk_atpid=br.br_bkid
+ where bk.bk_atpstatus is null and bktp.bktp_atpstatus is null and bk.bk_atpid is not null [ RunTime:0.0045s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000883s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001018s ]
+
+[ 2017-04-08T22:48:51+08:00 ] ::1 /bms/index.php/Admin/history/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000501s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000813s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001063s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Applications/MAMP/htdocs/bms/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000164s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000489s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010015s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010166s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000239s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000365s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001405s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001552s ]
+
+[ 2017-04-08T22:48:51+08:00 ] ::1 /bms/index.php/Admin/History/getData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000034s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000619s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000773s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000934s ]
+NOTIC: [8] A session had already been started - ignoring session_start() /Applications/MAMP/htdocs/bms/ThinkPHP/Common/functions.php 第 1263 行.
+NOTIC: [8] Undefined index: search /Applications/MAMP/htdocs/bms/Application/Admin/Controller/HistoryController.class.php 第 32 行.
+SQL: 
+select br.*,bk.*,emp.*,substring(br.br_brtime, 1, 10) br_brtime1,substring(br.br_rttime, 1, 10) br_rttime1
+from bkmg_borrow br
+left join bkmg_book bk on br.br_bkid=bk.bk_atpid
+left join bkmg_employee emp on br.br_empid=emp.emp_atpid
+ where br.br_atpstatus is null order by br_rttime asc  limit 0,10  [ RunTime:0.0032s ]
+SQL: 
+select count(1) c
+from bkmg_borrow br
+left join bkmg_book bk on br.br_bkid=bk.bk_atpid
+left join bkmg_employee emp on br.br_empid=emp.emp_atpid
+ where br.br_atpstatus is null [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000797s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000911s ]
+
